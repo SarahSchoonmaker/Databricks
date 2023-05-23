@@ -84,7 +84,7 @@ display(most_ordered_items_df)
 # COMMAND ----------
 
 # DBTITLE 1,Price Distrubution Per Item
-# CHALLENGE FOR THE STUDENTS: WHY ARE THERE NEGATIVE PRICES?
+
 price_df = spark.sql("SELECT UnitPrice\
                       FROM default.items\
                       GROUP BY StockCode,Description,UnitPrice")
@@ -140,7 +140,7 @@ display(result)
 # COMMAND ----------
 
 ## And in UK
-# CHALLENGE. Actually the GROUP BY is not needed this time, how would you simplify the query?
+
 result = spark.sql("""
 SELECT items.Description, avg(items.UnitPrice) * sum(items.Quantity) as total_revenue, invoices.Country
 FROM default.items
